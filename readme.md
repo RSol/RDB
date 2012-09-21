@@ -70,7 +70,7 @@ INSERT ... ON DUPLICATE KEY UPDATE
 License
 -------
 
-Fayiiles is licensed under New BSD license. That allows proprietary use, and for
+RDB is licensed under New BSD license. That allows proprietary use, and for
 the software released under the license to be incorporated into proprietary
 products. Works based on the material may be released under a proprietary license
 or as closed source software. It is possible for something to be distributed
