@@ -17,21 +17,21 @@ Install
 
 - Copy files "RDbCommand.php" and "RDbConnection.php" into your "components" directory.
 - In your main config write in db section 'class' param like this
-~~~
-[php]
-'db' => array(
-	'class' => 'RDbConnection',
-    'connectionString' => 'mysql:host=localhost;dbname=database',
-    'emulatePrepare' => true,
-    'username' => 'root',
-    'password' => '',
-    'charset' => 'utf8',
-	'schemaCachingDuration' => 3600,
-    'enableProfiling' => true,
-	'tablePrefix' => '',
-	'enableParamLogging' => true,
-);
-~~~
+
+```php
+	'db' => array(
+		'class' => 'RDbConnection',
+		'connectionString' => 'mysql:host=localhost;dbname=database',
+		'emulatePrepare' => true,
+		'username' => 'root',
+		'password' => '',
+		'charset' => 'utf8',
+		'schemaCachingDuration' => 3600,
+		'enableProfiling' => true,
+		'tablePrefix' => '',
+		'enableParamLogging' => true,
+	);
+```
 
 License
 -------
