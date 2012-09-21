@@ -33,6 +33,40 @@ Install
 	);
 ```
 
+Exemple
+-------
+
+MULTI INSERT
+```php
+	Yii::app()->db->insert('table', array(
+		array('field'=>1),
+		array('field'=>2),
+		array('field'=>3),
+		array('field'=>4),
+		array('field'=>5),
+		...
+		array('field'=>'n'),
+	));
+```
+
+INSERT IGNORE ...
+```php
+	Yii::app()->db->insertIgnore('table', array(
+		'keyfield'=>1,
+		'field'=>0,
+	));
+```
+
+INSERT ... ON DUPLICATE KEY UPDATE
+```php
+	Yii::app()->db->insertUpdate('table', array(
+		'keyfield'=>1,
+		'field'=>0,
+	), array(
+		'field'=>new CDbExpression('field+1'),
+	));
+```
+
 License
 -------
 
