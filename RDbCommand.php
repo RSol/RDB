@@ -3,6 +3,19 @@
 class RDbCommand extends CDbCommand
 {
 	/**
+	 * Creates and executes an REPLACE SQL statement.
+	 * The method will properly escape the column names, and bind the values to be inserted.
+	 * @param string $table the table that new rows will be inserted into.
+	 * @param array $columns the column data (name=>value) to be inserted into the table
+	 *			 or array(array(name=>value),array(name=>value)).
+	 * @return integer number of rows affected by the execution.
+	 */
+	public function replace($table, $columns)
+	{
+		return $this->_insertReplace($table, $columns, array(), '', 'REPLACE')
+	}
+	
+	/**
 	 * Creates and executes an INSERT SQL statement.
 	 * The method will properly escape the column names, and bind the values to be inserted.
 	 * @param string $table the table that new rows will be inserted into.
@@ -40,9 +53,14 @@ class RDbCommand extends CDbCommand
 	 */
 	public function insertUpdate($table, $columns, $update=array(), $ignore='')
 	{
+		return $this->_insertReplace($table, $columns, $update, $ignore);
+	}
+	
+	protected function _insertReplace($table, $columns, $update=array(), $ignore='', $type='INSERT')
+	{
 		list($names, $placeholders, $params) = $this->_insert($columns);
 
-		$sql="INSERT {$ignore} INTO " . $this->getConnection()->quoteTableName($table)
+		$sql="{$type} {$ignore} INTO " . $this->getConnection()->quoteTableName($table)
 			. ' (' . implode(', ',$names) . ') VALUES '
 			. implode(', ', $placeholders);
 		
