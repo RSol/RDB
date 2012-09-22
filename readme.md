@@ -5,6 +5,7 @@ Yii extention for MySQL database with:
 - INSERT INTO table (field) VALUES (1),(2)....
 - INSERT IGNORE
 - INSERT ... ON DUPLICATE KEY UPDATE
+- REPLACE
 
 Requirements
 ------------
@@ -67,6 +68,15 @@ INSERT ... ON DUPLICATE KEY UPDATE
 			'field'=>0,
 		), array(
 			'field'=>new CDbExpression('field+1'),
+		));
+```
+
+REPLACE
+```php
+	Yii::app()->db->createCommand()
+		->replace('table', array(
+			'keyfield'=>1,
+			'field'=>0,
 		));
 ```
 
