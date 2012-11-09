@@ -12,7 +12,7 @@ class RDbCommand extends CDbCommand
 	 */
 	public function replace($table, $columns)
 	{
-		return $this->_insertReplace($table, $columns, array(), '', 'REPLACE')
+		return $this->_insertReplace($table, $columns, array(), '', 'REPLACE');
 	}
 	
 	/**
