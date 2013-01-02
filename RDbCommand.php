@@ -40,6 +40,16 @@ class RDbCommand extends CDbCommand
 	 */
 	public function insertUpdate($table, $columns, $update=array(), $ignore='')
 	{
+		if(!$table || !is_string($table))
+		{
+			throw new CDbException(Yii::t('ext.RDbCommand', 'Table name should be a valid string.'));
+		}
+		
+		if(!$columns || !is_array($columns))
+		{
+			throw new CDbException(Yii::t('ext.RDbCommand', 'Columns should be a valid one demention array.'));
+		}
+		
 		list($names, $placeholders, $params) = $this->_insert($columns);
 
 		$sql="INSERT {$ignore} INTO " . $this->getConnection()->quoteTableName($table)
