@@ -83,7 +83,7 @@ class RDbCommand extends CDbCommand
 		}
 		else
 		{
-			list($names, $placeholders[], $params) = $this->_insertPrepare($columns, $params);
+			list($names, $placeholders[], $params) = $this->_insertPrepare($columns, 0, $params);
 		}
 
 		return array($names, $placeholders, $params);
